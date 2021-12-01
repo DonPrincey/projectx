@@ -1,0 +1,12 @@
+{% extends "index_base2.html" %}
+{% block pagecontent%}
+
+<b>{{formtitle}}</b>
+<form  method="POST"  enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+ 
+<input type="submit" value="Post Update ">
+
+</form>
+{%endblock%}

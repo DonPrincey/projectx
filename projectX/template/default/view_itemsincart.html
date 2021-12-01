@@ -1,0 +1,114 @@
+{% extends 'default_basefile.html'%}
+
+
+
+	{%block pagecontent%}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info msg fade show"
+ role="alert"><h4>{{ msg }}<h4></div>
+
+{% endfor %}{% endif %}
+<div class="col-md-12" >
+<h5>{{cartqty}} items in cart
+<a href="#" class="single-icon"><i class="ti-bag"></i>										
+<span class="total-count">{{cartqty}}</span></a>
+
+</h5>
+</div>
+
+<div class="col-lg-2 col-md-3 col-12">
+<div class="">
+<!-- Shopping Item -->
+<div class="shopping-item">
+<table  style="width:550px;">
+<script>
+function doUpdate(name,price,d_id,d_idamount){
+price=parseInt(price)
+var qty = document.getElementById(d_id).value;
+var total = qty*price
+console.log(d_id,qty,total,d_idamount)
+updateCart(name,qty,total,d_idamount)
+
+}
+</script>
+
+
+{%for x,y  in cartitems.items %}
+<tr>
+<td>
+<a href="/default/removethisitemfromcart/{{y.name}}" 
+class="remove" title="Remove this item">
+<i class="fa fa-remove">-Remove this item</i></a>
+</td>
+<td>
+<a class="cart-img" href="#">
+<img src="/media/{{y.image}} alt="#"
+style="width:250px;padding:25px; "
+></a>
+</td>
+
+
+<td>
+<h4><a href="#">{{y.name}}</a></h4>
+<p class="quantity">
+<input type="number" name="quantity" 
+value="{{y.qty}}" id="{{y.name}}_quantity" 
+onchange='doUpdate("{{y.name}}","{{y.price}}","{{y.name}}_quantity","{{y.name}}_amount")' > 
+<p>
+<span class="amount" id="{{y.name}}_amount">{{y.total}}
+</span></p>
+</p>
+</td>
+
+</tr>
+{%endfor%}
+
+
+
+
+</table>
+
+
+<div class="bottom">
+<div class="total">
+<span>Total</span>
+<span class="total-amount" id="totalamount">{{total}}</span>
+</div>
+
+<a href="/default/checkout/" 
+class="btn animate">Checkout</a> 
+<hr> 
+
+<a href="/" style="color:#fff;"
+class="btn animate">Continue</a>
+
+</div>
+
+
+</div>
+								<!--/ End Shopping Item -->
+</div>
+</div>
+					
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  					
+<script> 
+
+
+function updateCart(name,qty,total,x) {
+document.getElementById(x).innerHTML="<b style='color:red;'>"+total+"<b>"
+console.log("data for server",qty,total,x)
+var durl="/default/cartItemupdate/"+name+"/"+qty+"/"+total
+$.ajax({url:durl , success: function(result){
+   $("#totalamount").html("<b style='color:purple;'>"+result+'</b>');
+	console.log(durl)
+	console.log(result)
+  }});
+} 
+</script> 				
+					
+	{%endblock%}
+	
+
+	
+

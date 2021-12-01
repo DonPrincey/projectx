@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block pagecontent %}
+<style>
+.main form{padding:20px; border:1px solid brown;
+margin: 10px; width: 600px; display: inline-block;}
+.main label{width:90%;padding:5px;margin:5px; display:inline-block;
+text-align:center; border: 1px solid lightgrey;font-weight:bolder;}
+.main input{width:90%;padding:5px;margin:5px; display:inline-block;
+text-align:center; border: 1px solid lightgrey;font-weight:bolder;}
+
+</style>
+<div class="main">
+<form action="" method="post">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="submit form" >
+</form>
+</div>
+{% endblock%}

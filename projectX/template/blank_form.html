@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+
+<b>{{formtitle}}</b>
+<form action="" method="POST",
+enctype="multipart/form-data">
+{{forms.as_p}}
+ {% csrf_token %}
+<input type="submit" value="submit">
+
+</form>
+{%endblock%}

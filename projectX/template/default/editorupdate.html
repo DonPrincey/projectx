@@ -1,0 +1,32 @@
+{% extends 'index_base2.html' %}
+
+{% block pagecontent %}
+<style>
+
+</style>
+
+<h4>showing uploaded products here</h4>
+{%for x in dtx %}
+<p style="width:350px;padding:11px;">
+
+<span style="display:inline;color:blue;padding:5px;margin-right:5px">
+<img src="/media/{{x.productimage}}" width=200px />
+</span>
+
+
+<span style="display:inline;color:blue;padding:5px;margin-right:5px">
+{{x.productname}}
+</span>
+{{x.productprice}}
+<span style="display:inline;color:orange;padding:5px">
+Category : {{x.category}}
+
+</span>
+<
+
+</p>
+{%endfor%}
+
+
+
+{% endblock %}

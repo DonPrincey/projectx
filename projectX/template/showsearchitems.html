@@ -1,0 +1,58 @@
+{% extends 'index_base2.html' %}
+
+{% block pagecontent %}
+<style>
+
+</style>
+
+<h4>showing search results</h4>
+
+{%for s in search %}
+
+<h4>{{s.productname}}<h4>
+<img src="/media/{{s.productimage}}"
+width=200px; />
+<p><b>{{s.description}}
+</b>
+</p>
+<p><b>{{s.productprice}}
+</b>
+</p>
+
+<br>
+<p>
+<a href="add itemtocart/{{s.id}}"   
+style="border:solid lightgray 1px;padding:10px;border-radius:10px;margin:15px;"
+>
+add this to cart
+</a>
+</p>
+
+
+
+
+{%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "index_base2.html" %}
+{% block pagecontent%}
+<h3>do you want to delete this item ?</h3>
+<br><br>
+{{dtx.name}}
+{dtx.features}}
+{{dtx.description}}
+<br><br>
+<a href="/default/confirmdeletecategory/{{dtx.id}}">Delete this item
+</a>
+{%endblock%}

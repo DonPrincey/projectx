@@ -1,0 +1,69 @@
+{% extends 'default_basefile.html'%}
+
+
+
+	{%block pagecontent%}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info msg fade show"
+ role="alert"><h4>{{ msg }}<h4></div>
+
+{% endfor %}{% endif %}
+<div class="col-md-12" >
+<h5>{{cartqty}} items in cart
+<a href="#" class="single-icon"><i class="ti-bag"></i>										
+<span class="total-count">{{cartqty}}</span></a>
+
+</h5>
+</div>
+
+<div class="col-lg-2 col-md-3 col-12">
+<div class="">
+<!-- Shopping Item -->
+<div class="shopping-item">
+<table  style="width:550px;" cellspacing="10px" 
+ cellpadding="20px" border=1>
+
+{%for x,y  in cartitems.items %}
+<tr>
+<td>
+<h4><a href="#">{{x}} </a></h4>
+</td>
+<td>
+<h4><a href="#">{{y.qty}}</a></h4>
+</td>
+<td>
+<h4><a href="#"> {{y.total}}</a></h4>
+</td>
+</tr>
+{%endfor%}
+
+
+
+
+<tr>
+<td><h3>TOTAL: </h3></td>
+<td><h3>{{updated_total}}</h3></td>
+
+</tr>
+</table>
+
+
+<div class="bottom">
+<hr> 
+<a href="/default/makepayment/{{updated_total}}" 
+class="btn animate">MakePayment</a> 
+</div>
+
+
+</div>
+								<!--/ End Shopping Item -->
+</div>
+</div>
+				
+					
+	{%endblock%}
+	
+
+	
+

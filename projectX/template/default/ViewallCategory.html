@@ -1,0 +1,27 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block pagecontent %}
+<style>
+
+</style>
+
+<h4>showing  product categories  here</h4>
+<center>
+{%for x in dtx %}
+<p style="width:200px;padding:11px;">
+
+<span style="display:inline;color:blue;padding:5px;margin-right:5px">
+Category name : {{x.name}}
+</span>
+Feature : {{x.feature}}
+<span style="display:inline;color:orange;padding:5px">
+Description  : {{x.description}}
+
+</span>
+</p>
+
+{%endfor%}
+</center>
+
+
+{% endblock %}

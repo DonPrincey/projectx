@@ -1,0 +1,27 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block pagecontent %}
+
+<style>
+.formcss{width:700px;margin:20px;padding:30px;}
+
+.formcss label{width:70%;margin:20px;}
+.formcss input{width:80%;margin:10px;padding:11px; font-size: 20px;}
+
+</style>
+
+<div style="width:100%;text-align:center;border:solid 1px orange;">
+<center>
+<h4> Create  product category  here</h4>
+<form method="POST" enctype="multipart/form-data"  class="formcss">
+
+{% csrf_token %}
+
+{{forms.as_p}}
+
+<input type="submit" value="Create Category" class="button" />
+</form>
+
+</center>
+</div>
+{% endblock %}

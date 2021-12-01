@@ -1,0 +1,28 @@
+<div class="search-bar">
+								<select id="selectoption" >
+									<option selected="selected">
+			Select to Search</option>
+									
+									{%for x in search_category%}
+									<option>{{x}}</option>
+									{%endfor%}
+								</select>
+								<form onsubmit="xvy()">
+
+<input id="searchtext" name="search" 
+placeholder="Search Products Here....." type="text">
+								</form>
+<button class="btnn" onclick='xvy()'><i class="ti-search"></i></button>
+
+							</div>
+							
+						<script>
+
+	function xvy(){
+var s = document.getElementById('searchtext').value
+var s2 = document.getElementById('selectoption').value
+var s3="default/searchitems/"+s+"/"+s2
+alert("searching ....."+s+s2)
+window.open(s3)
+}	
+</script>

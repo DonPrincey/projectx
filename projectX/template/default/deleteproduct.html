@@ -1,0 +1,10 @@
+{% extends "index_base2.html" %}
+{% block pagecontent%}
+<h3>do you want to delete this item ?</h3>
+<br><br>
+{{dtx.productname}}
+{{dtx.description}}
+<br><br>
+<a href="/default/confirmdeleteproduct/{{dtx.id}}">Delete this item
+</a>
+{%endblock%}

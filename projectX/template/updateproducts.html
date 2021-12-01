@@ -1,0 +1,21 @@
+{% extends 'index_base2.html' %}
+
+{% block pagecontent %}
+
+<style>
+.formcss{width:700px;margin:20px;}
+
+.formcss label{width:70%;margin:20px;}
+.formcss input{width:80%;margin:10px;padding:11px; font-size: 20px;}
+
+</style>
+<h4>upload products here</h4>
+<form method="POST" enctype="multipart/form-data"  class="formcss">
+
+{% csrf_token %}
+
+{{forms.as_p}}
+
+<input type="submit" value="Upload product" class="button" />
+</form>
+{% endblock %}

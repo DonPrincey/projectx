@@ -1,0 +1,51 @@
+
+
+
+<a href="#" class="single-icon">
+<i class="ti-bag"></i> 
+<span class="total-count">
+{{cartqty}}</span></a>
+								
+								
+
+
+
+
+
+
+
+
+
+
+
+<div class="shopping-item">
+<div class="dropdown-cart-header">
+<span>{{cartqty}} Items in cart</span>
+<a href="/default/viewitemsincart">View Cart</a>
+										
+									</div>
+									<ul class="shopping-list">
+						
+											{%for x,y  in cartitems.items %}
+										<li>
+<a href="/default/removeitemsfromcart" class="remove" 
+title="Remove this item">
+<i class="fa fa-remove"></i></a>
+<a class="cart-img" href="#">
+<img src="/media/{{y.image}}" alt="#"></a>
+<h4><a href="">{{x}}</a><br></h4>
+<p class="quanti5ty">											
+{{y.qty}} - <span class="amount">
+{{y.total}}</span></p>
+</li>
+{%endfor%}
+</ul>
+<div class="bottom">
+<div class="total">
+<span>Total</span>
+<span class="total-amount">{{cart_total}}</span>
+</div>
+<a href="/default/checkout/" class="btn animate">
+										Checkout</a>
+									</div>
+								</div>

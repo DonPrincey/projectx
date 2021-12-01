@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block pagecontent %}
+<style>
+p{color:red;}
+div{padding 20px; border:1px solid;}
+</style>
+
+<b>User feedbacks</b>
+<p>
+{%for x in u %}
+<div><p>{{x.names}} &nbsp; {{x.email}}</p></div>
+{%endfor%}
+{% endblock %}
